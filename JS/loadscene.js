@@ -16,6 +16,35 @@ export class LoadScene extends Phaser.Scene {
             frameHeight: 144
             
         })
+        this.load.spritesheet('ground', './IMGS/ground.png', {
+            
+            frameWidth: 128,
+            frameHeight: 128
+            
+        })
+        this.load.spritesheet('objs', './IMGS/objects.png', {
+            
+            frameWidth: 128,
+            frameHeight: 128
+            
+        })
+        this.load.spritesheet('snail', './IMGS/snail.png', {
+            
+            frameWidth: 128,
+            frameHeight: 96
+            
+        })
+        this.load.spritesheet('ladybug', './IMGS/lady_bug.png', {
+            
+            frameWidth: 128,
+            frameHeight: 96
+            
+        })
+        
+        this.load.audio('punch', './AUDIO/punch.wav');
+        this.load.audio('ding', './AUDIO/ding.wav');
+        this.load.audio('tada', './AUDIO/tada.wav');
+        
     }
     
     create(){
@@ -49,6 +78,21 @@ export class LoadScene extends Phaser.Scene {
             frames: this.anim.generateFrameNames('player', {
                 
                 frames:[9, 10]
+                
+            }),
+            frameRate: 5,
+            yoyo: true,
+            repeat: -1
+            
+            
+        });
+        
+        this.anims.create({
+            
+            key: 'ladybug-flying',
+            frames: this.anim.generateFrameNames('ladybug', {
+                
+                frames:[0, 1]
                 
             }),
             frameRate: 5,
