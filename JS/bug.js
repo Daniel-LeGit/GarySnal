@@ -1,33 +1,32 @@
-export class Ladybug extends Phaser.Physics.Arcade.Sprite {
+export class Bug extends Phaser.Physics.Arcade.Sprite {
     
     constructor(scene, data){
         
         super(scene, data.x, data.y, data.key, data.frame);
         
     
-    this.setOrigin(0);
-    scene.add.existing(this);
+        this.setOrigin(0);
+        scene.add.existing(this);
 
-    this.min = data.min;
-    this.max = data.max;
+        this.min = data.min;
+        this.max = data.max;
         
-    this.velocity = data.velocity;
-    this.anims.play(data.animation);
+        this.velocity = data.velocity;
+        this.anims.play(data.animation);
 
-    this.setFlipX(true);
+        this.setFlipX(true);
         
         
     }
 
 
     update(time){
-    
-    this.setVelocity(this.velocity);
+        this.setVelocityX(this.velocity);
+        //console.log(Math.abs(this.x - this.max.x));
         
-        if((this.velocity < 0 && Math.abs(this.x - this.min.x)< 0.001) ||(this.velocity > 0 && Math.abs(this.x - this.min.x)< 0.001)){
-            
+        if((this.velocity < 0 && Math.abs(this.x - this.min.x)< 2) || (this.velocity > 0 && Math.abs(this.x - this.max.x)< 2)){
             this.velocity = -this.velocity;
-            this.setFlipX(false);
+            this.setFlipX(!this.flipX);
             
         }
     

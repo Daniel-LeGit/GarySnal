@@ -1,11 +1,11 @@
 import { LoadScene } from './loadscene.js';
-import { Level1 } from './scene1.js';
+import { Level1 } from './Scene1.js';
 
 const config = {
     
-    width: 1920,
-    height: 1080,
-    type: Phaser.Auto,
+    width: 2048,
+    height: 2048,
+    type: Phaser.AUTO,
     parent: 'game-canvas',
     backgroundColor: '#832974',
     scene:[LoadScene, Level1],
@@ -25,8 +25,7 @@ const config = {
         
     },
     
-    pixelArt: true,
-    
+    pixelArt: true
     
 }
 

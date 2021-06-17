@@ -5,16 +5,16 @@ export class Snail extends Phaser.Physics.Arcade.Sprite {
         super(scene, data.x, data.y, data.key, data.frame);
         
     
-    this.setOrigin(0);
-    scene.add.existing(this);
+        this.setOrigin(0);
+        scene.add.existing(this);
 
-    this.min = data.min;
-    this.max = data.max;
+        this.min = data.min;
+        this.max = data.max;
         
-    this.velocity = data.velocity;
-    this.anims.play(data.animation);
+        this.velocity = data.velocity;
+        this.anims.play(data.animation);
 
-    this.setFlipX(true);
+        this.setFlipX(true);
         
         
     }
@@ -22,9 +22,9 @@ export class Snail extends Phaser.Physics.Arcade.Sprite {
 
     update(time){
     
-    this.setVelocity(this.velocity);
+        this.setVelocity(this.velocity);
         
-        if((this.velocity < 0 && Math.abs(this.x - this.min.x)< 0.001) ||(this.velocity > 0 && Math.abs(this.x - this.min.x)< 0.001)){
+        if((this.velocity < 0 && Math.abs(this.x - this.min.x)< 0.001) || (this.velocity > 0 && Math.abs(this.x - this.max.x)< 0.001)){
             
             this.velocity = -this.velocity;
             this.setFlipX(false);
